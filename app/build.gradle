@@ -1,0 +1,76 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+//    buildToolsVersion '28.0.3'
+
+    defaultConfig {
+        applicationId "com.kuanquan.testdemo"
+        minSdkVersion 19
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                // 设置参数 eventBusIndex以指定要生成的索引的完全限定类
+                arguments = [eventBusIndex: 'com.fly.kuanquan.EventBusIndex'] // 这里要修改为你项目的包名
+            }
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+//    compile 'com.android.support:appcompat-v7:28.0.0'
+//    compile("com.android.support:appcompat-v7:28.0.0") {
+//        force = true
+//    }
+//    compile("com.android.support:support-v4:21.0.3") {
+//        force = true
+//    }
+    compile 'com.android.support:multidex:1.0.3'
+//    compile 'com.android.support:design:28.0.0'
+    compile("com.android.support:design:28.0.0") {
+        force = true
+    }
+
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+//    compile 'com.android.support:recyclerview-v7:28.0.0'
+    compile("com.android.support:recyclerview-v7:28.0.0") {
+        force = true
+    }
+    compile 'com.android.support.constraint:constraint-layout:1.1.3'
+    compile 'com.google.code.gson:gson:2.8.2'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'com.squareup.retrofit2:retrofit:2.5.0'
+    compile 'com.squareup.okhttp3:okhttp:3.12.1'
+    //引入Gson支持
+    compile 'com.squareup.retrofit2:converter-gson:2.0.1'
+
+    // 给EventBus配置索引，提升效率 使用annotationProcessor 属性将EventBus批注处理器添加到构建中
+    annotationProcessor 'org.greenrobot:eventbus-annotation-processor:3.1.1'
+
+    // 配置完成后重新Rebuild Project项目，
+    // 然后我们到\app\build\generated\source\apt\debug\package\查看是否生成所配置的的文件EventBusIndex
+
+    implementation "io.reactivex.rxjava2:rxjava:2.2.7"
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+}

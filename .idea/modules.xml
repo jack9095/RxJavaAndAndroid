@@ -3,7 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MyApplication.iml" filepath="$PROJECT_DIR$/MyApplication.iml" />
-      <module fileurl="file://$PROJECT_DIR$/RxJavaAndAndroid/myapplication2.iml" filepath="$PROJECT_DIR$/RxJavaAndAndroid/myapplication2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/databinding/databinding.iml" filepath="$PROJECT_DIR$/databinding/databinding.iml" />
+      <module fileurl="file://$PROJECT_DIR$/workmanager/workmanager.iml" filepath="$PROJECT_DIR$/workmanager/workmanager.iml" />
     </modules>
   </component>
 </project>

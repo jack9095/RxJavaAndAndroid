@@ -12,6 +12,8 @@
  */
 package io.reactivex;
 
+import org.reactivestreams.Publisher;
+
 import java.util.*;
 import java.util.concurrent.*;
 

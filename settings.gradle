@@ -1,3 +1,4 @@
+include ':databinding', ':workmanager'
 //include ':app'
-include ':RxJavaAndAndroid'
+//include ':RxJavaAndAndroid'
 //include ':testdemo'

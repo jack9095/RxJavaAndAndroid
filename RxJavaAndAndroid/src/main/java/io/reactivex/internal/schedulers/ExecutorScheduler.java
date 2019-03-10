@@ -119,7 +119,8 @@ public final class ExecutorScheduler extends Scheduler {
         return super.schedulePeriodicallyDirect(run, initialDelay, period, unit);
     }
     /* public: test support. */
-    public static final class ExecutorWorker extends Worker implements Runnable {
+//    public static final class ExecutorWorker extends Worker implements Runnable {
+    public static final class ExecutorWorker extends Scheduler.Worker implements Runnable {
 
         final boolean interruptibleWorker;
 
@@ -139,8 +140,8 @@ public final class ExecutorScheduler extends Scheduler {
             this.interruptibleWorker = interruptibleWorker;
         }
 
-        @NonNull
-        @Override
+//        @NonNull
+//        @Override
         public Disposable schedule(@NonNull Runnable run) {
             if (disposed) {
                 return EmptyDisposable.INSTANCE;
@@ -180,8 +181,8 @@ public final class ExecutorScheduler extends Scheduler {
             return disposable;
         }
 
-        @NonNull
-        @Override
+//        @NonNull
+//        @Override
         public Disposable schedule(@NonNull Runnable run, long delay, @NonNull TimeUnit unit) {
             if (delay <= 0) {
                 return schedule(run);
@@ -218,7 +219,7 @@ public final class ExecutorScheduler extends Scheduler {
             return mar;
         }
 
-        @Override
+//        @Override
         public void dispose() {
             if (!disposed) {
                 disposed = true;
@@ -229,7 +230,7 @@ public final class ExecutorScheduler extends Scheduler {
             }
         }
 
-        @Override
+//        @Override
         public boolean isDisposed() {
             return disposed;
         }
